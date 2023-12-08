@@ -1,0 +1,69 @@
+package CollectionList;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+//create the Laptop class
+class Laptop {
+ int ModalNo;
+ String name;
+ int ram;
+ Laptop(int ModalNo, String name, int ram)
+ {
+     this.ModalNo = ModalNo;
+     this.name = name;
+     this.ram = ram;
+ }
+}
+
+//creates the comparator for comparing RAM
+class RamComparator implements Comparator<Laptop> {
+ // override the compare() method
+ public int compare(Laptop A, Laptop B)
+ {
+     if (A.ram == B.ram) {
+         return 0;
+     }
+     else if (A.ram < B.ram) {
+         return 1;
+     }
+     else {
+         return -1;
+     }
+ }
+}
+
+
+class GFG {
+    public static void main(String[] args)
+    {
+        // create the ArrayList object
+        ArrayList<Laptop> l = new ArrayList<Laptop>();
+        l.add(new Laptop(322, "Dell", 2));
+        l.add(new Laptop(342, "Asus", 8));
+        l.add(new Laptop(821, "HP", 16));
+        l.add(new Laptop(251, "Lenovo", 6));
+        l.add(new Laptop(572, "Acer", 4));
+ 
+        System.out.println("before sorting");
+        System.out.println("Ram Name ModalNo");
+        for (Laptop laptop : l) {
+            System.out.println(laptop.ram + " "
+                               + laptop.name + " "
+                               + laptop.ModalNo);
+        }
+        System.out.println();
+ 
+        System.out.println("After sorting(sorted by Ram)");
+        System.out.println("Ram Name ModalNo");
+ 
+        // call the sort function
+        Collections.sort(l, new RamComparator());
+        for (Laptop laptop : l) {
+            System.out.println(laptop.ram + " "
+                               + laptop.name + " "
+                               + laptop.ModalNo);
+        }
+    }
+}
