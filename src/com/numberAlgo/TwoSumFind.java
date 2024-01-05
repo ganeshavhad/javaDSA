@@ -7,7 +7,6 @@ public class TwoSumFind {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Question ref = https://youtu.be/cQ1Oz4ckceM
 		int[] intArray = new int[]{ 1,2,3,4,5,6,7,8,9,10 };
 		int target = 8;
 		int[] res = twoSum(intArray,target);
